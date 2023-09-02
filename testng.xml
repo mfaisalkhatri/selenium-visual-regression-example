@@ -5,6 +5,7 @@
         <classes>
             <class name="io.github.mfaisalkhatri.tests.VisualRegressionTests">
             <methods>
+                <include name="testECommerceVisualRegressionScenarioOne"/>
                 <include name="testECommerceVisualRegressionScenarioTwo"/>
             </methods>
             </class>
