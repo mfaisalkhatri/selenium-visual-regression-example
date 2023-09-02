@@ -13,7 +13,6 @@ public class ProductPage {
     }
     private static final String SCREEN_NAME        = "Product-Page";
 
-
     public void checkVisual() {
         ((JavascriptExecutor) this.driver).executeScript (MessageFormat.format ("smartui.takeScreenshot={0}", SCREEN_NAME));
     }

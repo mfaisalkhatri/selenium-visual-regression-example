@@ -1,7 +1,6 @@
 package io.github.mfaisalkhatri.drivers;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -22,14 +21,13 @@ public class DriverManager {
     public void createChromeDriverInCloud() {
         final ChromeOptions browserOptions = new ChromeOptions();
         browserOptions.setPlatformName("Windows 10");
-        browserOptions.setBrowserVersion("114.0");
         final HashMap<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("username", LT_USERNAME);
         ltOptions.put("accessKey", LT_ACCESS_KEY);
         ltOptions.put("resolution", "2560x1440");
         ltOptions.put("video", true);
-        ltOptions.put("project", "Selenium Smart UI Visual regression");
-        ltOptions.put("smartUI.project", "Visual_Regression_Selenium");
+        ltOptions.put("smartUI.project", "Visual Regression Selenium");
+        ltOptions.put("smartUI.baseline", false);
         ltOptions.put("w3c", true);
         ltOptions.put("plugin", "java-testNG");
         final var smartOptions = new HashMap<String, Object> ();
@@ -38,14 +36,10 @@ public class DriverManager {
         browserOptions.setCapability("LT:Options", ltOptions);
         try {
             this.driver = new RemoteWebDriver(new URL(format("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_KEY, GRID_URL)), browserOptions);
-        } catch (MalformedURLException e) {
+        } catch (final MalformedURLException e) {
             throw new Error("RemoteDriver's URL not set correctly!");
         }
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
-
-    public void createChromeDriverLocal() {
-        this.driver = new ChromeDriver();
     }
 
     public WebDriver getDriver() {

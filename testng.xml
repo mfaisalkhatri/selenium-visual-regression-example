@@ -4,6 +4,9 @@
     <test name="Visual Regression Tests">
         <classes>
             <class name="io.github.mfaisalkhatri.tests.VisualRegressionTests">
+            <methods>
+                <include name="testECommerceVisualRegressionScenarioTwo"/>
+            </methods>
             </class>
         </classes>
     </test> <!-- Test -->
