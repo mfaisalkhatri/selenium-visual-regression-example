@@ -32,6 +32,8 @@ public class DriverManager {
         ltOptions.put("plugin", "java-testNG");
         final var smartOptions = new HashMap<String, Object> ();
         smartOptions.put ("largeImageThreshold", 1200);
+        smartOptions.put ("transparency", 0.3);
+        smartOptions.put ("errorType", "movement");
         ltOptions.put ("smartUI.options", smartOptions);
         browserOptions.setCapability("LT:Options", ltOptions);
         try {
